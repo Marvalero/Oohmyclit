@@ -49,6 +49,7 @@ var captureOutboundLink = function(action, url) {
      'transport': 'beacon',
      'hitCallback': function(){document.location = url;}
    });
+   window.location.href=url
 }
 </script>
 </head>

@@ -34,6 +34,21 @@
       z-index: 10;
     }
 </style>
+<script>
+/**
+* Función que registra un clic en un enlace saliente en Analytics.
+* Esta función toma una cadena de URL válida como argumento y la utiliza
+* como la etiqueta del evento. Configurar el método de transporte como "beacon" permite que el hit se envíe
+* con "navigator.sendBeacon" en el navegador que lo admita.
+*/
+var captureOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+   window.location.href=url
+}
+</script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177506160-1"></script>
 <script>
@@ -70,19 +85,19 @@
          </div>
 
          <div class="col-sm-6">
-           <button class="btn btn-light" onclick="window.location.href='https://etsy.me/2yhDEFh'">
+           <button class="btn btn-light" onclick="captureOutboundLink('https://etsy.me/2yhDEFh'); return false;">
              <img href="#" src="figuras.jpg" alt="Figuras Etsy" height="100" class="rounded">
              <div>Figures and keyrigns</div>
            </button>
-           <button class="btn btn-light" onclick="window.location.href='https://oohmyclit.redbubble.com'">
+           <button class="btn btn-light" onclick="captureOutboundLink('https://oohmyclit.redbubble.com'); return false;">
              <img href="#" src="redbubble.png" alt="Complementos Redbubble" height="100" class="rounded">
              <div>T-shirts, bags, stickers,...</div>
            </button>
-           <button class="btn btn-light" onclick="window.location.href='https://medium.com/@mariavalerocam'">
+           <button class="btn btn-light" onclick="captureOutboundLink('https://medium.com/@mariavalerocam'); return false;">
              <img href="#" src="medium.png" alt="Complementos Redbubble" height="100" class="rounded">
              <div>Blog (in english)</div>
            </button>
-           <button class="btn btn-light" onclick="window.location.href='https://www.instagram.com/oohmyclit/'">
+           <button class="btn btn-light" onclick="captureOutboundLink('https://www.instagram.com/oohmyclit/'); return false;">
              <img href="#" src="instagram.png" alt="Instagram" height="100" class="rounded">
              <div>Instagram</div>
            </button>

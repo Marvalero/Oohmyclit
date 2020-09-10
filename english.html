@@ -34,21 +34,6 @@
       z-index: 10;
     }
 </style>
-<script>
-/**
-* Función que registra un clic en un enlace saliente en Analytics.
-* Esta función toma una cadena de URL válida como argumento y la utiliza
-* como la etiqueta del evento. Configurar el método de transporte como "beacon" permite que el hit se envíe
-* con "navigator.sendBeacon" en el navegador que lo admita.
-*/
-var captureOutboundLink = function(action, url) {
-   ga('send', 'event', 'outbound', action, url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-   window.location.href=url
-}
-</script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177506160-1"></script>
 <script>
@@ -57,6 +42,14 @@ var captureOutboundLink = function(action, url) {
   gtag('js', new Date());
 
   gtag('config', 'UA-177506160-1');
+</script>
+<script>
+var captureOutboundLink = function(action, url) {
+   ga('send', 'event', 'outbound', action, url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+}
 </script>
 </head>
 <body class="" style="background-color:MediumVioletRed">

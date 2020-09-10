@@ -43,6 +43,15 @@
 
   gtag('config', 'UA-177506160-1');
 </script>
+<script>
+var captureOutboundLink = function(action, url) {
+   ga('send', 'event', 'outbound', action, url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+   window.location.href=url
+}
+</script>
 </head>
 <body class="" style="background-color:MediumVioletRed">
 
@@ -70,19 +79,19 @@
          </div>
 
          <div class="col-sm-6">
-             <button class="btn btn-light" onclick="window.location.href='https://etsy.me/2yhDEFh'">
+             <button class="btn btn-light" onclick="captureOutboundLink('toEtsy','https://etsy.me/2yhDEFh'); return false;">
                <img href="#" src="figuras.jpg" alt="Figuras Etsy" height="100" class="rounded">
                <div>Figuras y Llaveros</div>
              </button>
-             <button class="btn btn-light" onclick="window.location.href='https://oohmyclit.redbubble.com'">
+             <button class="btn btn-light" onclick="captureOutboundLink('toRedbubble','https://oohmyclit.redbubble.com'); return false;">
                <img href="#" src="redbubble.png" alt="Complementos Redbubble" height="100" class="rounded">
                <div>Camisetas, bolsos, stickers,...</div>
              </button>
-             <button class="btn btn-light" onclick="window.location.href='https://medium.com/@mariavalerocam'">
+             <button class="btn btn-light" onclick="captureOutboundLink('toMedium','https://medium.com/@mariavalerocam'); return false;">
                <img href="#" src="medium.png" alt="Complementos Redbubble" height="100" class="rounded">
                <div>Blog (en Ingles)</div>
              </button>
-             <button class="btn btn-light" onclick="window.location.href='https://www.instagram.com/oohmyclit/'">
+             <button class="btn btn-light" onclick="captureOutboundLink('toInstagram','https://www.instagram.com/oohmyclit/'); return false;">
                <img href="#" src="instagram.png" alt="Instagram" height="100" class="rounded">
                <div>Instagram</div>
              </button>

@@ -41,8 +41,8 @@
 * como la etiqueta del evento. Configurar el método de transporte como "beacon" permite que el hit se envíe
 * con "navigator.sendBeacon" en el navegador que lo admita.
 */
-var captureOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
+var captureOutboundLink = function(action, url) {
+   ga('send', 'event', 'outbound', action, url, {
      'transport': 'beacon',
      'hitCallback': function(){document.location = url;}
    });
@@ -85,19 +85,19 @@ var captureOutboundLink = function(url) {
          </div>
 
          <div class="col-sm-6">
-           <button class="btn btn-light" onclick="captureOutboundLink('https://etsy.me/2yhDEFh'); return false;">
+           <button class="btn btn-light" onclick="captureOutboundLink('toEtsy','https://etsy.me/2yhDEFh'); return false;">
              <img href="#" src="figuras.jpg" alt="Figuras Etsy" height="100" class="rounded">
              <div>Figures and keyrigns</div>
            </button>
-           <button class="btn btn-light" onclick="captureOutboundLink('https://oohmyclit.redbubble.com'); return false;">
+           <button class="btn btn-light" onclick="captureOutboundLink('toRedbubble','https://oohmyclit.redbubble.com'); return false;">
              <img href="#" src="redbubble.png" alt="Complementos Redbubble" height="100" class="rounded">
              <div>T-shirts, bags, stickers,...</div>
            </button>
-           <button class="btn btn-light" onclick="captureOutboundLink('https://medium.com/@mariavalerocam'); return false;">
-             <img href="#" src="medium.png" alt="Complementos Redbubble" height="100" class="rounded">
+           <button class="btn btn-light" onclick="captureOutboundLink('toMedium','https://medium.com/@mariavalerocam'); return false;">
+             <img href="#" src="medium.png" alt="Medium Icon" height="100" class="rounded">
              <div>Blog (in english)</div>
            </button>
-           <button class="btn btn-light" onclick="captureOutboundLink('https://www.instagram.com/oohmyclit/'); return false;">
+           <button class="btn btn-light" onclick="captureOutboundLink('toInstagram','https://www.instagram.com/oohmyclit/'); return false;">
              <img href="#" src="instagram.png" alt="Instagram" height="100" class="rounded">
              <div>Instagram</div>
            </button>

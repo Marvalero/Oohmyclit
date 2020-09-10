@@ -45,7 +45,7 @@
 </script>
 <script>
 var captureOutboundLink = function(action, url) {
-   ga('send', 'event', 'outbound', action, url, {
+   ga('send', 'event', 'outbound', action, url, 1, {
      'transport': 'beacon',
      'hitCallback': function(){document.location = url;}
    });
